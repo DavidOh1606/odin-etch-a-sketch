@@ -1,11 +1,25 @@
 const DEFAULT_SIZE = 16;
 const SIZE_LIMIT = 100;
 
+const newGridButton = document.querySelector(".new-grid-button");
 const container = document.querySelector("#container");
 
 createGrid(DEFAULT_SIZE);
+newGridButton.addEventListener("click", newGrid);
 
+function newGrid() {
+    let size = Number(prompt("Enter new grid size: "));
 
+    if (size > SIZE_LIMIT) {
+        size = SIZE_LIMIT;
+    }
+
+    const oldElements = Array.from(container.querySelectorAll(".row"));
+    oldElements.forEach(element => {element.remove()});
+
+    createGrid(size);
+
+}
 
 function createGrid(size) {
 
@@ -27,3 +41,4 @@ function setHovered(e) {
     e.target.classList.add("hovered");
     e.target.removeEventListener("mouseover", setHovered);
 }
+
