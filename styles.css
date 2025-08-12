@@ -13,9 +13,17 @@
 }
 
 .grid {
-    border: 1px solid black;
+    background-color: black;
 
     width: 16px;
     height: 16px;
 
+}
+
+.hovered {
+    background-color: gray;
+}
+
+.new-grid-button {
+    margin: 16px 0;
 }
